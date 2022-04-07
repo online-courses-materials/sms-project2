@@ -1,9 +1,50 @@
 # sms-course-projects
 
+- Creating the projects 
+```bash
+os@ubuntu:~$ cd catkin_ws/
+ros@ubuntu:~/catkin_ws$ mkdir project2_ws
+ros@ubuntu:~/catkin_ws$ cd project2_ws/
+ros@ubuntu:~/catkin_ws/project2_ws$ mkdir src
+ros@ubuntu:~/catkin_ws/project2_ws$ ls
+src
+ros@ubuntu:~/catkin_ws/project2_ws$ cd src/
+ros@ubuntu:~/catkin_ws/project2_ws/src$ catkin_create_pkg project2 roscpp
+Created file project2/package.xml
+Created file project2/CMakeLists.txt
+Created folder project2/include/project2
+Created folder project2/src
+Successfully created files in /home/ros/catkin_ws/project2_ws/src/project2. Please adjust the values in package.xml.
+ros@ubuntu:~/catkin_ws/project2_ws/src$ cd ..
+ros@ubuntu:~/catkin_ws/project2_ws$ catkin_make
+Base path: /home/ros/catkin_ws/project2_ws
+Source space: /home/ros/catkin_ws/project2_ws/src
+.
+.
+.
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'project2'
+-- ==> add_subdirectory(project2)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ros/catkin_ws/project2_ws/build
+####
+#### Running command: "make -j4 -l4" in "/home/ros/catkin_ws/project2_ws/build"
+####
+Scanning dependencies of target rpm_pub
+Scanning dependencies of target speed_calc
+[ 50%] Building CXX object project2/CMakeFiles/rpm_pub.dir/src/rpm_pub.cpp.o
+[ 50%] Building CXX object project2/CMakeFiles/speed_calc.dir/src/speed_calc.cpp.o
+[ 75%] Linking CXX executable /home/ros/catkin_ws/project2_ws/devel/lib/project2/rpm_pub
+[100%] Linking CXX executable /home/ros/catkin_ws/project2_ws/devel/lib/project2/speed_calc
+[100%] Built target rpm_pub
+[100%] Built target speed_calc
+ros@ubuntu:~/catkin_ws/project2_ws$
 
+```
 - Clone the repository 
 ```bash
-ros@ubuntu:~/catkin_ws/project1_ws$ git clone "https://github.com/online-courses-materials/sms-course-projects.git"
+ros@ubuntu:~/catkin_ws/project1_ws$ git clone "https://github.com/online-courses-materials/sms-project2.git"
 ```
 
 - Run the rosecore in the command line
@@ -42,15 +83,33 @@ ros@ubuntu:~/catkin_ws/project1_ws$ catkin_make
 - Run the subscriber node in the new tab
 ```bash
 ros@ubuntu:~/catkin_ws/project1_ws$ source devel/setup.bash
-ros@ubuntu:~/catkin_ws/project1_ws$ rosrun project1 subscriber 
-[ INFO] [1649136189.572747064]: Hello World 2
-[ INFO] [1649136189.772282120]: Hello World 3
-[ INFO] [1649136189.972430143]: Hello World 4
-[ INFO] [1649136190.172334747]: Hello World 5
+os@ubuntu:~/catkin_ws/project2_ws$ rosrun project2 rpm_pub
+[ INFO] [1649312650.755458099]: Publishing RPM...
 ```
 - Run the publisher node in the new tab
 ```bash
 ros@ubuntu:~/catkin_ws/project1_ws$ source devel/setup.bash
-ros@ubuntu:~/catkin_ws/project1_ws$ rosrun project1 publisher
-[ INFO] [1649136189.171565980]: Publisher Node Started
+ros@ubuntu:~/catkin_ws/project2_ws$ source devel/setup.bash
+ros@ubuntu:~/catkin_ws/project2_ws$ rosrun project2 speed_calc 
+```
+- Run the publisher node in the new tab
+```bash
+os@ubuntu:~/catkin_ws/project2_ws$ rostopic list
+/rosout
+/rosout_agg
+/rpm
+/speed
+ros@ubuntu:~/catkin_ws/project2_ws$ rostopic echo rpm
+data: 60.0
+---
+data: 60.0
+---
+data: 60.0
+ros@ubuntu:~/catkin_ws/project2_ws$ rostopic echo speed
+data: 0.7853975296020508
+---
+data: 0.7853975296020508
+---
+data: 0.7853975296020508
+
 ```
