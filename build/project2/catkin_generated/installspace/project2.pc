@@ -1,8 +1,0 @@
-prefix=/home/ros/catkin_ws/project2_ws/install
-
-Name: project2
-Description: Description of project2
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
