@@ -44,7 +44,7 @@ ros@ubuntu:~/catkin_ws/project2_ws$
 ```
 - Clone the repository 
 ```bash
-ros@ubuntu:~/catkin_ws/project1_ws$ git clone "https://github.com/online-courses-materials/sms-project2.git"
+ros@ubuntu:~/catkin_ws/project2_ws$ git clone "https://github.com/online-courses-materials/sms-project2.git"
 ```
 
 - Run the rosecore in the command line
@@ -78,17 +78,16 @@ started core service [/rosout]
 ```
 - Compile the project
 ```bash
-ros@ubuntu:~/catkin_ws/project1_ws$ catkin_make
+ros@ubuntu:~/catkin_ws/project2_ws$ catkin_make
 ```
 - Run the subscriber node in the new tab
 ```bash
-ros@ubuntu:~/catkin_ws/project1_ws$ source devel/setup.bash
+ros@ubuntu:~/catkin_ws/project2_ws$ source devel/setup.bash
 os@ubuntu:~/catkin_ws/project2_ws$ rosrun project2 rpm_pub
 [ INFO] [1649312650.755458099]: Publishing RPM...
 ```
 - Run the publisher node in the new tab
 ```bash
-ros@ubuntu:~/catkin_ws/project1_ws$ source devel/setup.bash
 ros@ubuntu:~/catkin_ws/project2_ws$ source devel/setup.bash
 ros@ubuntu:~/catkin_ws/project2_ws$ rosrun project2 speed_calc 
 ```
