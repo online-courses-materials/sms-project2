@@ -1,0 +1,2 @@
+project2
+-DCATKIN_DEVEL_PREFIX=/home/ros/catkin_ws/project2_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ros/catkin_ws/project2_ws/install -G Unix Makefiles
